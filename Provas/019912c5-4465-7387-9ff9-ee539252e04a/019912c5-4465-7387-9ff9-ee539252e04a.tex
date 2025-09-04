@@ -1,0 +1,933 @@
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Classe do documento
+    \documentclass[12pt, addpoints]{exam}
+    \UseRawInputEncoding
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % preambulo.tex
+    %
+    % Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+    % preferências e modelos pessoais.
+    %
+    % Para maiores informações, visite:
+    %    https://github.com/abrantesasf/latex
+    %
+    % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Estruturas de controle:
+    \input{static/utils/controles}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Compilação condicional em PDF:
+    \input{static/utils/pdf}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de layout da página:
+    \input{static/utils/layout}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para autores:
+    \input{static/utils/autores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cabeçalho e rodapé:
+    %%% Atenção! É MUITO DIFÍCIL ajustar apropriadamente os running headers
+    %%% e running footers da primeira vez. Você pode confiar no LaTeX e deixar que
+    %%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
+    %%% tentar melhorar algo que o LaTeX já faz muito bem, mesmo que não fique
+    %%% exatamente do jeito que você quer. O que você prefere? Se quiser ajustar
+    %%% manualmente, descomente a linha abaixo e faça as configurações no arquivo
+    %%% "utils/headings.tex".
+    %\input{static/utils/headings}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configuração para as fontes do documento:
+    %%% Se você quiser usar fontes próprias ou do sistema, precisará ajustar as
+    %%% configurações no arquivo "utils/fontes.tex".
+    %%% ATENÇÃO: por padrão eu utilizo XeLaTeX com fontes proprietárias projetadas
+    %%% por Matthew Butterick, adquiridas em https://mbtype.com, que não podem ser
+    %%% distribuídas devido à licença de utilização. Se você usar XeLaTeX, você
+    %%% DEVERÁ OBRIGATORIAMENTE ajustar as fontes no arquivo "utils/fontes.tex".
+    \input{static/utils/fontes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Sumário:
+    \input{static/utils/toc}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Matemática:
+    \input{static/utils/matematica}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Notas de rodapé:
+    \input{static/utils/footnotes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências cruzadas, links, citações:
+    \input{static/utils/crossrefs}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para os hiperlinks em PDF:
+    \input{static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Glossário e índice remissivo:
+    \input{static/utils/glossindex}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências bibliográficas:
+    \input{static/utils/bibliografia}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cores:
+    \input{static/utils/cores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Computação:
+    \input{static/utils/computacao}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Gráficos:
+    \input{static/utils/graficos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ícones:
+    \input{static/utils/icones}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Blocos:
+    \input{static/utils/blocos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Boxes coloridos:
+    \input{static/utils/colorbox}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Tabelas:
+    \input{static/utils/tabelas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes de listas:
+    \input{static/utils/listas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes floats e similares:
+    \input{static/utils/floats}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para a classe EXAM:
+    \input{static/utils/exam}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para textos:
+    \input{static/utils/texto}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes, aliases, comandos e customizações em geral para serem
+    %%% utilizadas nos documentos. Defina aqui qualquer customização específica
+    %%% para seus documentos!
+    \input{static/utils/customizacoes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajuste do layout, espaçamento de linhas e etc.:
+    \geometry{a4paper, portrait, left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm}
+    \singlespacing
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de cabeçalho e rodapé (não use fancyhdr pois ocorre conflito):
+    \pagestyle{headandfoot}
+    \runningheadrule
+    \firstpageheader{}{}{}
+    \runningheader{Sem disciplina}{}{Avaliação}
+    \firstpagefooter{}{}{Página \thepage\ de \numpages}
+    \runningfooter{}{}{Página \thepage\ de \numpages}
+    \runningfootrule
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para as propriedades do PDF:
+    \hypersetup{
+    hidelinks,           % Comente para web, descomente para impressão
+    colorlinks=true,      % True para web, False para impressão
+    pdftitle=TaRodqando: Avaliação,
+    pdfauthor=Matheus Endlich Silveira,
+    pdfsubject=Sem disciplina,
+    pdfkeywords=['Sem tag'],
+    pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+    }
+    }
+    \input{static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Começa o documento
+    \begin{document}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Folha de instruções padronizadas da UVV para a prova
+    \pdfbookmark[1]{Instruções}{instrucoes}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.3]{{static/imgs/logo-uvv.png}}
+        \end{center}	
+    \end{figure}
+
+    \vspace{-1cm}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|llll|}
+            \hline
+            \multicolumn{2}{|l|}{\textbf{Disciplina:} Sem disciplina} & 
+            \multicolumn{1}{l|}{\multirow{3}{*}{\textbf{\makecell{Nota:\\ \,\\ \,}}}} & 
+            \multirow{3}{*}{\textbf{\makecell{Coordenador:\\ \,\\ \,}}} \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Professor:} Matheus Endlich Silveira \hspace{4.72cm} } & 
+            \multicolumn{1}{l|}{} & \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Aluno:}} & 
+            \multicolumn{1}{l|}{} & \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Turma:} \hspace{6.3cm} } & 
+            \multicolumn{1}{l|}{\textbf{Semestre:}} & 
+            \multicolumn{2}{l|}{\textbf{Valor:} 10 pontos} \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Data:}} & 
+            \multicolumn{3}{l|}{\textbf{Avaliação:}} \\ 
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{center}
+        \fbox{\setlength\fboxsep{0.3cm} \fbox{\parbox{15.4cm}{
+            \begin{center}
+                \textbf{INSTRUÇÕES PARA A REALIZAÇÃO DESTA AVALIAÇÃO:}
+            \end{center}
+            \begin{itemize}[leftmargin=*]
+                \item Esta é a primeira avaliação da disciplina Sem disciplina, 
+                    e engloba o conteúdo referente Sem tag.
+                \item Esta avaliação contém 50 questões objetivas, \textbf{todas obrigatórias}.
+                \item \textbf{Leia atentamente cada questão!} As questões objetivas terão uma,
+                    e apenas uma única, resposta a ser marcada.
+                \item \textbf{Desligue o celular} antes de começar. A avaliação é
+                    \textbf{individual} e \textbf{sem consulta}.
+                \item As questões podem ser respondidas, na prova, com lápis ou caneta. Ao final
+                    da prova \textbf{{VOCÊ DEVERÁ PREENCHER O GABARITO COM CANETA
+                    DE COR PRETA}} \textbf{\underline{OU AZUL}} para que seja feita a correção
+                    automatizada através da leitura do padrão de respostas marcado no
+                    gabarito.
+                \item \textbf{CUIDADO ao preencher o gabarito} pois eles são \textbf{INDIVIDUAIS
+                    e NOMEADOS} (cada estudante tem um gabarito próprio específico, com um
+                    código de identificação único). \textbf{Questões rasuradas são anuladas}
+                    pelo software de leitura do gabarito.
+                \item Ao final da prova, \textbf{DEVOLVA A PROVA E O GABARITO} para o professor.
+                \item Siga todas as normas de \textbf{Integridade Acadêmica} da disciplina.
+                    Alunos que forem flagrados com qualquer espécie de ``cola'' ou trocando
+                    informações com outros alunos terão suas avaliações recolhidas, as notas
+                    zeradas, e a situação será encaminhada para a coordenação para a aplicação
+                    das penalidades previstas pela universidade.
+                \item Com 90 minutos de avaliação você terá tempo de até 2,min por questão,
+                    em média.
+                \item Boa avaliação!
+            \end{itemize}
+            \vspace{2cm}
+        }}}
+    \end{center}
+    \newpage
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Inicia o bloco de questões:
+    \begin{questions}
+
+    \newpage
+    \question
+(Adaptado de ENADE 2011) Considere o diagrama abaixo, que ilustra um banco de
+dados que descreve os empregados que trabalham nos departamentos de uma empresa:
+\begin{figure}[H]
+  \centering
+  \caption{Empregados e departamentos}
+  \vspace{-0.2cm}
+  \label{fig:empregados}
+  %\fbox{
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+  %}\\
+  %\footnotesize{Fonte: xxxx.}
+\end{figure}
+\vspace{-0.4cm}
+Na linguagem SQL, o comando mais simples para recuperar os códigos dos
+departamentos que contém empregados que ganham menos do que 2000 e mais do que
+5000 reais é:
+
+\begin{choices}
+\choice \begin{verbatim}SELECT cod_departamento
+FROM empregados
+WHERE salario <= 2000 AND salario >= 5000;
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT cod_departametno
+FROM empregados
+WHERE salario <= 2000 OR salario >= 5000;
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT cod_departamento
+FROM empregados
+WHERE salario < 2000 AND salario > 5000;
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT cod_departamento
+FROM empregados
+WHERE salario < 2000 OR salario > 5000;
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT cod_departamento
+FROM empregados
+WHERE salario BETWEEN 2000 AND 5000;
+\end{verbatim}
+
+\end{choices}
+
+\question
+Assinale quantas sequências de caracteres a seguir são reconhecidas pelo autômato finito abaixo. As quatro sequências de caracteres (separadas por vírgulas) são: \(0\), \(+567\), \(-89.5\), \(-3e3\).
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \caption{Questão 25}
+    \label{fig:enter-label}
+\end{figure}
+
+Qual das seguintes alternativas indica o número de sequências reconhecidas pelo autômato?
+\begin{choices}
+\choice 2
+\choice 0
+\choice 1
+\choice 4
+\choice 3
+\end{choices}
+
+\question
+Em SQL, qual comando é utilizado para combinar linhas de duas ou mais tabelas?
+
+\begin{choices}
+\choice CONNECT
+\choice MERGE
+\choice JOIN
+\choice LINK
+\choice COMBINE
+\end{choices}
+
+\question
+Assinale a alternativa INCORRETA:
+
+\begin{choices}
+\choice O controle de fluxo tem como objetivo garantir que nenhum dos parceiros de uma comunicação inunda o outro enviando pacotes mais rápido do que ele pode tratar.
+\choice Nos serviços orientados a conexões há a necessidade de estabelecimento de uma conexão antes da transferência dos dados.
+\choice Os serviços orientados a conexão podem ajudar no controle de congestionamento através da diminuição da taxa de transmissão durante um congestionamento em andamento.
+\choice Os serviços orientados a conexões são sempre confiáveis garantindo a entrega ordenada e completa dos dados transmitidos.
+\choice Serviços orientados a conexão podem ser implementados em subredes que funcionam no modo datagrama.
+\end{choices}
+
+\question
+Um sistema centralizado é um concentrador de recursos; um sistema distribuído apresenta seus recursos dispersos. Entretanto, nem todo conjunto de recursos computacionais dispersos pode ser considerado um sistema distribuído. Considerando um conjunto de computadores, assinale a alternativa que melhor corresponde às características necessárias para considerá-lo um sistema distribuído:
+\begin{choices}
+\choice Suporte de rede e um relógio global
+\choice Existência de sistema operacional idêntico e hardware padronizado em todos os computadores
+\choice Suporte de rede e funções primitivas de comunicação 
+\choice Existência de memória compartilhada e relógios locais sincronizados 
+\choice Existência de memória secundária compartilhada e protocolos de sincronização de estado
+\end{choices}
+
+\question
+Uma característica de uma arquitetura RISC é:
+\begin{choices}
+\choice Uma arquitetura de alto risco pois o mercado de hardware evolui muito rapidamente
+\choice Possui um grande conjunto de instruções complexas
+\choice A arquitetura é constituída de milhares de processadores
+\choice O processador é formado por válvulas e transistores
+\choice Possui um pequeno conjunto de instruções simples
+\end{choices}
+
+\question
+A função abaixo, escrita na linguagem C, quando executada para \( n = 5 \), faz quantas chamadas recursivas (excluindo a primeira chamada da função)? 
+\begin{verbatim} int fat (int n) 
+{ 
+if (n == 1) return n; 
+else return (n*fat(n-1)); 
+} 
+\end{verbatim}
+\begin{choices}
+\choice 4
+\choice 1
+\choice 6
+\choice 0
+\choice 5
+\end{choices}
+
+\question
+Em relação ao paradigma de programação cliente-servidor. Qual das afirmativas abaixo é FALSA?
+\begin{choices}
+\choice Um aplicativo servidor inicia ativamente o contato com clientes 
+\choice Um aplicativo servidor aceita contato de clientes arbitrários, mas oferece um único serviço. 
+\choice Um aplicativo cliente é um programa arbitrário que se torna temporariamente um cliente quando for necessário o acesso remoto a um serviço, mas também executa processamento local.
+\choice Um aplicativo servidor é um programa de propósito especial dedicado a fornecer um serviço, mas pode tratar de múltiplos clientes remotos ao mesmo tempo. 
+\choice Um aplicativo cliente pode acessar múltiplos serviços quando necessário.
+\end{choices}
+
+\question
+Um agente SNMP é um aplicativo que é executado:
+\begin{choices}
+\choice em roteadores com filtragem de pacotes com o objetivo de proteger acesso a rede
+\choice em "firewalls" com o objetivo de proteger acesso a rede
+\choice a partir de um computador específico para monitorar a rede
+\choice em computadores denominados de gerentes
+\choice em um dispositivo de rede
+\end{choices}
+
+\question
+O usuário que não é da área de tecnologia, costuma ser de alta gerência, que é
+especialista no negócio e tem a responsabilidade central pelas políticas de
+dados da empresa é o:
+\begin{choices}
+\choice Gerente de Tecnologia da Informação (ITM: IT Manager)
+\choice Coordenador de Tecnologia da Informação (ITS: IT Supervisor)
+\choice Encarregado da Proteção de Dados (DPO: Data Protection Officer)
+\choice Administrador do Banco de Dados (DBA: Database Administrator)
+\choice Administrador de Dados (DA: Data Administrator)
+\end{choices}
+
+\question
+Qual das seguintes opções \textbf{não é} uma vantagem do uso de um banco de
+dados sobre o sistema de arquivos convencional?
+
+\begin{choices}
+\choice Estruturação de dados
+\choice Controle de acesso e visualização de dados
+\choice Controle de redundância e inconsistência
+\choice Independência de dados
+\choice Eficiência
+\end{choices}
+
+\question
+Considere um problema em que são dados 5 objetos com os seguintes pesos e valores:\\
+\text{pesos: } $(W_1, W_2, W_3, W_4, W_5) = (6, 10, 9, 5, 12)$\\
+\text{valores: } $(P_1, P_2, P_3, P_4, P_5) = (8, 5, 10, 15, 7)$\\
+Além disso, é dada uma mochila que suporta até 30 unidades de peso, para transportar os objetos. O objetivo do problema é preencher a mochila de tal forma que o valor total dos objetos a serem transportados seja o maior possível, mas sem exceder o limite de peso suportado pela mochila. Assuma que é permitido colocar fração de um objeto na mochila. Qual das seguintes alternativas corresponde ao valor máximo obtido no preenchimento da mochila:
+\begin{choices}
+\choice 12.2
+\choice 21.5
+\choice 43.1
+\choice 30.34
+\choice 38.83
+\end{choices}
+
+\question
+Todos os convidados presentes num jantar tomam chá ou café. Treze convidados bebem café, dez bebem chá e 4 bebem chá e café. Quantas pessoas tem nesse jantar.
+
+\begin{choices}
+\choice 23
+\choice 19
+\choice 10
+\choice 15
+\choice 27
+\end{choices}
+
+\question
+Para cada \( n \in \mathbb{N} \), seja \( D_n = (0, 1/n) \), onde \( (0, 1/n) \) representa o intervalo aberto de extremos \( 0 \) e \( 1/n \). O conjunto diferença \( D_3 - D_{20} \) é igual a:
+
+\begin{choices}
+\choice \( D_{20} \cup D_3 \)
+\choice \( D_3 \)
+\choice \( [1/20, 1/3) \)
+\choice \( (1/20, 1/3) \)
+\choice \( D_{20} \)
+\end{choices}
+
+\question
+Considere o seguinte trecho de programa:\\
+1. \( i := 1; \)\\
+2. while \( i \leq n \) do\\
+   begin\\
+3. \( sum := sum + a[i]; \)\\
+4. \( i := i + 1; \)\\
+   end;\\
+
+Considere que:\\
+- \( I \) representa a inicialização da variável \( i := 1 \) na linha 1;\\
+- \( T \) representa o teste da linha 2;\\
+- \( A \) representa os comandos da linha 3;\\
+- \( P \) representa o incremento na linha 4.\\
+
+Qual é a expressão regular que representa todas as sequências de passos possíveis de serem executados por este trecho de programa?
+\begin{choices}
+\choice \( I(TAP)^* \)
+\choice \( I(TAP)^+ \)
+\choice \( I(T(AP)^*)^* \)
+\choice \( IT^+A^*P^* \)
+\choice \( I(T(AP)^*)^+ \)
+\end{choices}
+
+\question
+Seja \( f : \mathbb{R} \to \mathbb{R} \) derivável. Se existem \( a, b \in \mathbb{R} \) tal que \( f(a)f(b) < 0 \) e \( f(x) \neq 0 \) para todo \( x \in (a, b) \), podemos afirmar que no intervalo \( (a, b) \) a equação \( f(x) = 0 \) tem:
+\begin{choices}
+\choice somente raízes imaginárias
+\choice uma única raiz real
+\choice duas raízes reais
+\choice uma raiz imaginária
+\choice nenhuma raiz real
+\end{choices}
+
+\question
+Qual dos protocolos abaixo pode ser caracterizado como protocolo de roteamento do tipo estado de enlace?
+\begin{choices}
+\choice IGMP
+\choice ICMP
+\choice RIP2
+\choice OSPF
+\choice BGP-4
+\end{choices}
+
+\question
+Na criptografia com chave pública:
+
+\begin{choices}
+\choice O sigilo é obtido através da codificação com a chave pública do destinatário e decifragem com a chave privada do destinatário.
+\choice Para assinar digitalmente uma mensagem codifica-se a mesma com a chave pública do remetente e esta é decifrada com a chave privada do destinatário.
+\choice O sigilo é obtido através da codificação com a chave privada do remetente e decifragem com a chave pública do destinatário.
+\choice Para assinar digitalmente uma mensagem codifica-se a mesma com a chave pública do destinatário e esta é decifrada com a chave privada do destinatário.
+\choice O sigilo é obtido através da codificação com a chave privada do destinatário e decifragem com a chave pública do destinatário.
+\end{choices}
+
+\question
+Na Álgebra Booleana:
+\begin{choices}
+\choice Os dígitos são hexadecimais de 0 a 15
+\choice Os dígitos são alfanuméricos que podem ser representados por um byte
+\choice Há dez valores motivados pelos dez dedos do ser humano
+\choice Os dígitos são binários 0 e 1
+\choice Os dígitos são octais, de 0 a 7
+\end{choices}
+
+\question
+Pode-se afirmar que o gráfico da função \(y = 2 + \frac{1}{x - 1}\) é o gráfico da função \(y = \frac{1}{x}\):
+\begin{choices}
+\choice transladado uma unidade para a direita e duas unidades para baixo
+\choice transladado uma unidade para a esquerda e duas unidades para cima
+\choice transladado uma unidade para a direita e duas unidades para cima
+\choice transladado uma unidade para a esquerda e duas unidades para baixo
+\choice nenhuma das anteriores.
+\end{choices}
+
+\question
+Histograma de uma imagem com \( K \) tons de cinza é:
+\begin{choices}
+\choice Contagem do número de vezes que cada um dos \( K \) tons de cinza ocorreu na imagem.
+\choice Contagem do número de objetos encontrados na imagem.
+\choice Contagem do número de tons de cinza que ocorreram na imagem.
+\choice Contagem dos pixels da imagem.
+\choice Nenhuma alternativa acima.
+\end{choices}
+
+\question
+Marque a alternativa onde todos os conceitos estão corretos.
+
+\begin{choices}
+\choice Em um diagrama de fluxo de dados uma entidade externa representa um produtor ou um consumidor de informação e está fora dos limites do sistema modelado; cada processo deve ser refinado, para explicitar um maior detalhamento; um DFD pode conter vários níveis de detalhamento; um processo é um transformador de informação e também está fora do sistema; o nível 0 de um DFD representa o sistema como um todo e indica os principais usuários e as funções do sistema.
+\choice Em um diagrama de fluxo de dados uma entidade externa representa uma fonte ou destino das informações processadas pelo sistema e está fora dos limites do sistema modelado; cada processo pode ser refinado, para explicitar um maior detalhamento; um DFD pode conter vários níveis de detalhamento; um processo é um transformador de informação e também está fora do sistema; o nível 0 de um DFD representa o sistema como um todo e indica as principais fontes e destinos das informações.
+\choice Em um diagrama de fluxo de dados, uma entidade externa representa um produtor ou um consumidor de informação e está fora dos limites do sistema modelado; cada processo pode ser refinado, para explicitar um maior detalhamento; um DFD contém dois níveis de detalhamento; um processo é um transformador de informação e também está fora do sistema; o nível 0 de um DFD representa o sistema como um todo e indica os principais usuários e as funções do sistema.
+\choice Nenhuma das alternativas anteriores.
+\choice Em um diagrama de fluxo de dados uma entidade externa representa uma fonte ou destino das informações processadas pelo sistema e está fora dos limites do sistema modelado; cada processo pode ser refinado, para explicitar um maior detalhamento; um DFD pode conter vários níveis de detalhamento; um processo é um transformador de informação; o nível 0 de um DFD representa o sistema como um todo e indica as principais fontes e destinos das informações, usualmente referenciado por Diagrama de Contexto.
+\end{choices}
+
+\question
+Considere as seguintes tabelas em uma base de dados relacional (chaves primárias sublinhadas):\\
+Departamento (\underline{CodDepto}, NomeDepto)\\
+Empregado (\underline{CodEmp}, NomeEmp, CodDepto)\\
+Considere as seguintes restrições de integridade sobre esta base de dados relacional:\\
+- Empregado.CodDepto é sempre diferente de NULL\\
+- Empregado.CodDepto é chave estrangeira da tabela Departamento com cláusulas ON DELETE RESTRICT e ON UPDATE RESTRICT\\
+Qual das seguintes validações não é especificada por estas restrições de integridade:
+\begin{choices}
+\choice Sempre que uma nova linha for inserida em Departamento, deve ser garantido que o valor de Departamento.CodDepto aparece na coluna Empregado.CodDepto.
+\choice Sempre que o valor de Empregado.CodDepto for alterado, deve ser garantido que o novo valor de Empregado.CodDepto aparece em Departamento.CodDepto.
+\choice Sempre que uma nova linha for inserida em Empregado, deve ser garantido que o valor de Empregado.CodDepto aparece na coluna Departamento.CodDepto.
+\choice Sempre que o valor de Departamento.CodDepto for alterado, deve ser garantido que não há uma linha com o antigo valor de Departamento.CodDepto na coluna Empregado.CodDepto.
+\choice Sempre que uma linha for excluída de Departamento, deve ser garantido que o valor de Departamento.CodDepto não aparece na coluna Empregado.CodDepto.
+\end{choices}
+
+\question
+Três atletas \( A \), \( B \) e \( C \) competiram, ao pares, numa corrida de \( d \) metros. Considerando que cada atleta teve o mesmo desempenho (ou seja, a mesma velocidade) ao competir com adversários distintos, e sabendo-se que
+
+\begin{itemize}
+    \item \( A \) venceu \( B \) chegando 20 metros à frente
+    \item \( B \) venceu \( C \) chegando 10 metros à frente
+    \item \( A \) venceu \( C \) chegando 28 metros à frente,
+\end{itemize}
+
+podemos afirmar que a corrida tem
+\begin{choices}
+\choice 150 metros
+\choice 200 metros
+\choice 50 metros
+\choice 110 metros
+\choice 100 metros
+\end{choices}
+
+\question
+Ao analisar um novo sistema de gerenciamento de bancos de dados que surgiu no
+mercado, você percebe que a entrada às operações do modelo de dados são tabelas
+mas as saídas nunca são tabelas, são sempre outras estruturas. O vendedor desse
+SGBD afirma que ele é um SGBD relacional. Pode-se afirmar que:
+
+\begin{choices}
+\choice Esse SGBD não é relacional pois no modelo relacional a única estrutura percebida pelos usuários são tabelas.
+\choice Esse SGBD não é relacional pois, para ser verdadeiramente relacional, as operações do modelo de dados não podem trabalhar recebendo tabelas como entrada.
+\choice Esse SGBD é relacional pois consegue trabalhar com tabelas para a entrada das operações do modelo de dados. A saída não é importante.
+\choice Nenhuma das alternativas anteriores.
+\choice Esse SGBD é relacional pois o vendedor afirmou que é.
+\end{choices}
+
+\question
+Qual das seguintes afirmações sobre crescimento assintótico de funções não é verdadeira:
+\begin{choices}
+\choice \( 2n^2 + 3n + 1 = O(n^2) \)
+\choice \( \log n^2 = O(\log n) \)
+\choice Se \( f(n) = O(g(n)) \) e \( g(n) = O(h(n)) \) então \( f(n) = O(h(n)) \)
+\choice \( 2^{n+1} = O(2^n) \)
+\choice Se \( f(n) = O(g(n)) \) então \( g(n) = O(f(n)) \)
+\end{choices}
+
+\question
+Se \( \lim_{n \to \infty} \left( \frac{1}{n^2} + \frac{2}{n^2} + \cdots + \frac{n-1}{n^2} \right) = L \) então
+
+\begin{choices}
+\choice \( L = 2 \)
+\choice \( L = \infty \)
+\choice \( L = 0 \)
+\choice \( L = 1 \)
+\choice \( L = 1/2 \)
+\end{choices}
+
+\question
+Considere a seguinte tabela para uma base de dados relacional:\\
+Empregado (CodEmp, NomeEmp, CodDepto)\\
+Considere que esta tabela tem um índice na forma de uma árvore B sobre as colunas (CodEmp, CodDepto), nesta ordem.
+Quanto a este índice, considere as seguintes afirmativas:
+\begin{enumerate}
+    \item Este índice pode ser usado pelo SGBD relacional para acelerar uma consulta na qual são fornecidos os valores de CodEmp e CodDepto.
+    \item Este índice pode ser usado pelo SGBD relacional para acelerar uma consulta na qual é fornecido um valor de CodEmp.
+    \item Este índice não é adequado para ser usado pelo SGBD relacional para acelerar uma consulta na qual é fornecido um valor de CodDepto.
+    \item O algoritmo que faz inserções e remoções de entradas do índice tem por objetivo garantir que o índice fique organizado de tal forma que o acesso a cada nodo da árvore implique em número de acessos semelhantes.
+    \item O índice por árvore-B não é adequado para tabelas que sofrem grande número de inclusões e exclusões, pois exige reorganizações frequentes.
+\end{enumerate}
+
+
+Quanto a estas afirmativas pode se dizer que:
+\begin{choices}
+\choice Nenhuma das afirmativas está correta
+\choice Apenas as afirmativas 1), 2) e 4) estão corretas
+\choice Apenas as afirmativas 1), 2) e 5) estão corretas
+\choice Todas afirmativas estão corretas
+\choice Apenas as afirmativas 1), 2), 3) e 4) estão corretas
+\end{choices}
+
+\question
+A média aritmética de uma lista de 50 números é 50. Se dois desses números, 51 e 97, forem suprimidos dessa lista a média dos restantes será
+
+\begin{choices}
+\choice 49
+\choice 40
+\choice 50
+\choice 47
+\choice 51
+\end{choices}
+
+\question
+Dado um vetor \( u \in \mathbb{R}^2 \), \( u = (-3, 4) \), vamos denotar por \( v \) o vetor de \( \mathbb{R}^2 \) que tem tamanho 1 e é ortogonal a \( u \). Então \( v \) pode ser dado por
+
+\begin{choices}
+\choice \( \left( -\frac{4}{5}, -\frac{3}{5} \right) \)
+\choice \( \left( -\frac{4}{5}, \frac{1}{5} \right) \)
+\choice \( \left( \frac{3}{5}, \frac{4}{5} \right) \)
+\choice \( \left( -\frac{4}{5}, \frac{3}{5} \right) \)
+\choice \( \left( -\frac{4}{5}, \frac{2}{5} \right) \)
+\end{choices}
+
+\question
+Os Sistemas de Bancos de Dados (SBD) são essenciais hoje em dia, tanto para
+pessoas físicas quanto para pessoas jurídicas. Assinale a alternativa que não
+representa adequadamente a importância do uso de um SBD:
+\begin{choices}
+\choice Permitem consultas históricas, de modo otimizado, para que alguma informação atual possa ser comparada com dados anteriores.
+\choice Permitem que as empresas tenham mecanismos de obedecer à Lei Geral de Proteção de Dados Pessoais (LGPD), impedindo processos de anonimização das informações.
+\choice Permitem às empresas coletar, armazenar, agregar, manipular e gerenciar dados, tomando assim melhores decisões de negócios e fornecendo diversos serviços úteis aos seus clientes.
+\choice Permitem que as empresas criem sites na Internet de modo que os próprios usuários consigam consultar e atualizar alguns dados.
+\choice ermitem que as empresas criem aplicativos para telefones celulares, oferecendo serviços aos seus usuários.
+\end{choices}
+
+\question
+Quando dizemos que um banco de dados é em \ingles{cloud} e centralizado, estamos
+nos referindo, respectivamente, à localização dos dados e da
+infraestrutura. Verdadeiro ou falso?
+\begin{choices}
+\choice Não é possível determinar com os dados apresentados.
+\choice Falso
+\choice Verdadeiro
+\end{choices}
+
+\question
+Considere as afirmações abaixo sobre endereços IP:
+\begin{itemize}
+    \item[I.] Uma rede IP classe C fornece até 256 endereços válidos para serem atribuídos a equipe.
+    \item[II.] A quantidade máxima de bits que pode ser utilizada para se definir sub-redes em uma rede IP classe C é seis (6).
+    \item[III.] A máscara padrão para uma rede classe B é 255.255.255.0.
+\end{itemize}
+Qual das seguintes alternativas representa as afirmações corretas?
+\begin{choices}
+\choice Somente I e II.
+\choice Somente III.
+\choice Somente II.
+\choice Somente I.
+\choice Somente II e III.
+\end{choices}
+
+\question
+São vantagens da utilização de threads no espaço do usuário, exceto:
+\begin{choices}
+\choice Maior portabilidade da aplicação.
+\choice A criação e o gerenciamento das threads são mais eficientes.
+\choice O sistema operacional escalona a thread.
+\choice O escalonamento pode ser específico para a aplicação.
+\choice Nenhuma modificação é necessária no kernel.
+\end{choices}
+
+\question
+Um compilador detecta:
+\begin{choices}
+\choice erros nos resultados gerados pelo programa
+\choice todos os erros citados acima
+\choice erros que podem ocorrer durante a execução do programa
+\choice erros aritméticos
+\choice erros de sintaxe do programa 
+\end{choices}
+
+\question
+Dentre as definições a seguir, ligadas ao conceito de normalização do modelo relacional, qual delas é \textbf{INCORRETA}?
+
+\begin{choices}
+\choice A normalização é um processo passo a passo reversível de substituição de uma dada coleção de relações por sucessivas coleções de relações as quais possuem uma estrutura progressivamente mais simples e mais regular.
+\choice A primeira forma normal estabelece que os atributos da relação contêm apenas valores atômicos.
+\choice O objetivo da normalização é eliminar várias anomalias (ou aspectos indesejáveis) de uma relação.
+\choice As formas normais se baseiam em certas estruturas de dependências.
+\choice As relações que obedecem à primeira forma normal não apresentam anomalias.
+\end{choices}
+
+\question
+Considerando a rede de Petri abaixo, quais das alternativas são verdadeiras?
+
+\begin{itemize}
+    \item[I)] O lugar \( A \) está habilitado a disparar.
+    \item[II)] Apenas a transição \( T1 \) está habilitada a disparar.
+    \item[III)] A sequência de transições \( (T1, T2, T3, T2) \) pode ser disparada, nessa ordem.
+    \item[IV)] A transição \( T4 \) nunca poderá ser disparada.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \caption{Questão 49}
+    \label{fig:enter-label}
+\end{figure}
+\begin{choices}
+\choice Apenas as alternativas I e III.
+\choice Apenas as alternativas II e III.
+\choice Apenas as alternativas II, III e IV.
+\choice Todas as alternativas.
+\choice Apenas as alternativas III, IV.
+\end{choices}
+
+\question
+Que cláusula da SQL é fortemente relacionada com a lógica matemática?
+
+\begin{choices}
+\choice WHERE
+\choice INNER JOIN
+\choice ORDER BY
+\choice SELECT
+\choice FROM
+\end{choices}
+
+\question
+Dentre as definições a seguir, ligadas ao conceito de visões do modelo relacional, qual delas é \textbf{INCORRETA}?
+
+\begin{choices}
+\choice Programas aplicativos do banco de dados podem ser executados sobre visões de relações da base de dados.
+\choice Uma visão relacional é uma relação virtual, derivada de relações base a partir da especificação de operações da álgebra relacional.
+\choice O gerenciamento de visões envolve a conversão da consulta do usuário sobre as visões para a consulta sobre as relações base.
+\choice Uma visão relacional é uma relação virtual que nunca é materializada.
+\choice Uma visão é útil por representar uma percepção particular do banco de dados, compartilhado por muitos aplicativos.
+\end{choices}
+
+\question
+Quais das seguintes afirmações são verdadeiras? As Métricas de software servem para:
+
+\begin{itemize}
+    \item[I)] indicar a qualidade do produto e avaliar a produtividade.
+    \item[II)] auxiliar na melhoria do processo.
+    \item[III)] formar uma base para as estimativas e justificar a aquisição de ferramentas.
+    \item[IV)] determinar se a utilização de um método traz benefícios ou não.
+\end{itemize}
+\begin{choices}
+\choice Apenas as alternativas II e III.
+\choice Apenas as alternativas I, II e IV.
+\choice Nenhuma delas.
+\choice Todas as alternativas.
+\choice Apenas as alternativas I, IV.
+\end{choices}
+
+\question
+A velocidade de um ponto em movimento é dada pela equação\\
+$v(t) = t e^{-0.01t} \, \text{m/s}$\\
+O espaço percorrido desde o instante que o ponto começou a se mover até a sua parada total é
+
+\begin{choices}
+\choice \( 10^2 e^{-1} \, m \)
+\choice \( 10^4 \, m \)
+\choice \( 10^3 e^{-0.01} \, m \)
+\choice \( (e^{-100} - 1) m \)
+\choice \( 10^2 \, m \)
+\end{choices}
+
+\question
+Quais dos algoritmos de ordenação abaixo possuem tempo no pior caso e tempo médio de execução proporcional a \( O(n \log n) \).
+\begin{choices}
+\choice Quicksort e merge sort
+\choice Merge sort e bubble sort
+\choice Merge sort e heap sort
+\choice Heap sort e selection sort
+\choice Bubble sort e Quick sort
+\end{choices}
+
+\question
+Um banco de dados (BD) é uma coleção logicamente coerente de dados relacionados
+e persistentes. Em relação às características de um banco de dados, assinale a
+alternativa verdadeira:
+\begin{choices}
+\choice Geralmente é projetado e usado para finalidades gerais, sendo extremamente genéricos e adaptáveis para qualquer situação.
+\choice Não precisa de dados atuais e verdadeiros para ser útil (para representar corretamente a realidade atual).
+\choice Não precisam ser obrigatoriamente computadorizados, existem bancos de dados manuais e/ou em papel.
+\choice Armazena dois grandes ``tipos`` de dados: os dados do usuário final e os metadados, sendo que os metadados ficam armazenados nas mesmas tabelas que os dados dos usuários e isso nos permite saber a estrutura dos bancos de dados.
+\choice Representa um aspecto (ou parte) do mundo real, parte essa chamada de ``catálogo' ou ``dicionário de dados``.
+\end{choices}
+
+\question
+O pipeline de visualização de objetos tridimensionais reúne um conjunto de transformações e processos aplicados a primitivas geométricas. Sobre essas transformações e processos pode-se dizer que:
+\begin{enumerate}[label=\Roman*.]
+    \item Os objetos devem corresponder a sólidos.
+    \item As coordenadas dos vértices sofrem transformação de acordo com a posição e orientação do observador.
+    \item Um volume de visualização correspondente a um paralelepípedo é determinado pela adoção de projeção perspectiva.
+    \item A fase final do pipeline corresponde à rasterização dos polígonos.
+\end{enumerate}
+Selecione a alternativa correta:
+\begin{choices}
+\choice Apenas a afirmativa IV está verdadeira.
+\choice Apenas as afirmativas I e III são falsas.
+\choice Apenas a afirmativa IV é falsa.
+\choice Todas as afirmativas são verdadeiras.
+\choice As afirmativas II e III são falsas.
+\end{choices}
+
+\question
+Quanto ao TCP, é INCORRETO afirmar:
+\begin{choices}
+\choice Utiliza portas para permitir a comunicação entre processos localizados em dispositivos diferentes.
+\choice Possui um campo de \textit{checksum} que valida as informações de seu cabeçalho, mas não valida as informações de \textit{payload} (campo de dados).
+\choice É um protocolo do nível de transporte.
+\choice É um protocolo orientado a conexão.
+\choice Usa janelas deslizantes para implementar o controle de fluxo e erro.
+\end{choices}
+
+\question
+O número de \textit{strings binárias} de comprimento 7 e contendo um par de zeros consecutivos é
+
+\begin{choices}
+\choice 94
+\choice 90
+\choice 92
+\choice 91
+\choice 95
+\end{choices}
+
+\question
+Numa prova de múltipla escolha com 10 questões e 4 alternativas, qual a chance (probabilidade) de um aluno apenas "chutando as respostas" conseguir "gabaritar" a prova (acertar todas as questões).
+
+\begin{choices}
+\choice \( \frac{1}{4^{15}} \)
+\choice \( \frac{1}{10^{8}} \)
+\choice \( \frac{1}{10^{4}} \)
+\choice \( \frac{1}{4^{20}} \)
+\choice \( \frac{1}{2^{20}} \)
+\end{choices}
+
+\question
+Analise o diagrama relacional do banco de dados exibido na figura abaixo:
+\begin{figure}[H]
+  \centering
+  \caption{Banco de dados de peças e fornecedores}
+  \label{fig:pecas}
+  %\fbox{
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+  %}\\
+  %\footnotesize{Fonte: xxxx.}
+\end{figure}
+Podemos dizer que esse banco de dados ilustra:
+\begin{choices}
+\choice Um relacionamento com cardinalidade N:N entre as tabelas ``pecas' e ``fornecedores', realizado através de relacionamentos identificados através da tabela ``fornecimentos'. 
+\choice Um relacionamento com cardinalidade 1:N entre as tabelas ``pecas' e ``fornecedores', indicando que uma peça pode ter sido fornecida por diversos fornecedores. 
+\choice Um relacionamento com identificação N:N entre as tabelas ``pecas' e ``fornecedores', realizado através do relacionamento com cardinalidade identificada através da tabela ``fornecimentos'. 
+\choice Um relacionamento com cardinalidade N:N entre as tabelas ``pecas' e ``fornecimentos', realizado através de relacionamentos não identificados com a tabela ``fornecedores'. 
+\choice Um relacionamento com cardinalidade N:N entre as tabelas ``pecas' e ``fornecedores', realizado através de relacionamentos não identificados através da tabela ``fornecimentos'. 
+\end{choices}
+
+\question
+Um sistema de gerenciamento de bancos de dados (SGBD) é um software servidor
+que nos permite definir, construir, manipular, integrar e compartilhar bancos
+de dados entre diversos usuários e aplicações. São exemplos de
+SGBD, \textbf{exceto}:
+\begin{choices}
+\choice PostgreSQL
+\choice Oracle SQL Developer
+\choice MongoDB
+\choice Oracle Database
+\choice SQL Server
+\end{choices}
+
+\question
+Seja a árvore binária abaixo a representação de um espaço de estados para um problema \( p \), em que o estado inicial é \( a \), e \( i \) e \( f \) são estados finais.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \caption{Questão 59}
+    \label{fig:enter-label}
+\end{figure}
+
+Um algoritmo de busca em largura-primeiro forneceria a seguinte sequência de estados como primeira alternativa a um caminho-solução para o problema \( p \):
+\begin{choices}
+\choice \( a \ b \ c \ d \ e \ f \)
+\choice \( a \ b \ e \ i \)
+\choice \( a \ b \ d \ h \ e \ i \)
+\choice \( a \ b \ d \ e \ f \)
+\choice \( a \ c \ f \)
+\end{choices}
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Finaliza o bloco de questões:
+    \end{questions}
+    \end{document}
+    

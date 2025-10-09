@@ -1,0 +1,527 @@
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Classe do documento
+    \documentclass[12pt, addpoints]{exam}
+    \UseRawInputEncoding
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % preambulo.tex
+    %
+    % Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+    % preferências e modelos pessoais.
+    %
+    % Para maiores informações, visite:
+    %    
+    %
+    % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Estruturas de controle:
+    \input{static/utils/controles}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Compilação condicional em PDF:
+    \input{static/utils/pdf}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de layout da página:
+    \input{static/utils/layout}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para autores:
+    \input{static/utils/autores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cabeçalho e rodapé:
+    %%% Atenção! É MUITO DIFÍCIL ajustar apropriadamente os running headers
+    %%% e running footers da primeira vez. Você pode confiar no LaTeX e deixar que
+    %%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
+    %%% tentar melhorar algo que o LaTeX já faz muito bem, mesmo que não fique
+    %%% exatamente do jeito que você quer. O que você prefere? Se quiser ajustar
+    %%% manualmente, descomente a linha abaixo e faça as configurações no arquivo
+    %%% "utils/headings.tex".
+    %\input{static/utils/headings}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configuração para as fontes do documento:
+    %%% Se você quiser usar fontes próprias ou do sistema, precisará ajustar as
+    %%% configurações no arquivo "utils/fontes.tex".
+    %%% ATENÇÃO: por padrão eu utilizo XeLaTeX com fontes proprietárias projetadas
+    %%% por Matthew Butterick, adquiridas em https://mbtype.com, que não podem ser
+    %%% distribuídas devido à licença de utilização. Se você usar XeLaTeX, você
+    %%% DEVERÁ OBRIGATORIAMENTE ajustar as fontes no arquivo "utils/fontes.tex".
+    \input{static/utils/fontes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Sumário:
+    \input{static/utils/toc}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Matemática:
+    \input{static/utils/matematica}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Notas de rodapé:
+    \input{static/utils/footnotes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências cruzadas, links, citações:
+    \input{static/utils/crossrefs}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para os hiperlinks em PDF:
+    \input{static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Glossário e índice remissivo:
+    \input{static/utils/glossindex}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências bibliográficas:
+    \input{static/utils/bibliografia}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cores:
+    \input{static/utils/cores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Computação:
+    \input{static/utils/computacao}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Gráficos:
+    \input{static/utils/graficos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ícones:
+    \input{static/utils/icones}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Blocos:
+    \input{static/utils/blocos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Boxes coloridos:
+    \input{static/utils/colorbox}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Tabelas:
+    \input{static/utils/tabelas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes de listas:
+    \input{static/utils/listas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes floats e similares:
+    \input{static/utils/floats}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para a classe EXAM:
+    \input{static/utils/exam}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para textos:
+    \input{static/utils/texto}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes, aliases, comandos e customizações em geral para serem
+    %%% utilizadas nos documentos. Defina aqui qualquer customização específica
+    %%% para seus documentos!
+    \input{static/utils/customizacoes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajuste do layout, espaçamento de linhas e etc.:
+    \geometry{a4paper, portrait, left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm}
+    \singlespacing
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de cabeçalho e rodapé (não use fancyhdr pois ocorre conflito):
+    \pagestyle{headandfoot}
+    \runningheadrule
+    \firstpageheader{}{}{}
+    \runningheader{Sem disciplina}{}{Avaliação}
+    \firstpagefooter{}{}{Página \thepage\ de \numpages}
+    \runningfooter{}{}{Página \thepage\ de \numpages}
+    \runningfootrule
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para as propriedades do PDF:
+    \hypersetup{
+    hidelinks,           % Comente para web, descomente para impressão
+    colorlinks=true,      % True para web, False para impressão
+    pdftitle=Pre Enade Prova: Avaliação,
+    pdfauthor=Professor,
+    pdfsubject=Sem disciplina,
+    pdfkeywords=['Sem tag'],
+    pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+    }
+    }
+    \input{static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Começa o documento
+    \begin{document}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Folha de instruções padronizadas da para a prova
+    \pdfbookmark[1]{Instruções}{instrucoes}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.3]{{static/imgs/logo-.png}}
+        \end{center}	
+    \end{figure}
+
+    \vspace{-1cm}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|llll|}
+            \hline
+            \multicolumn{2}{|l|}{\textbf{Disciplina:} Sem disciplina} & 
+            \multicolumn{1}{l|}{\multirow{3}{*}{\textbf{\makecell{Nota:\\ \,\\ \,}}}} & 
+            \multirow{3}{*}{\textbf{\makecell{Coordenador:\\ \,\\ \,}}} \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Professor:} Professor \hspace{4.72cm} } & 
+            \multicolumn{1}{l|}{} & \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Aluno:}} & 
+            \multicolumn{1}{l|}{} & \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Turma:} \hspace{6.3cm} } & 
+            \multicolumn{1}{l|}{\textbf{Semestre:}} & 
+            \multicolumn{2}{l|}{\textbf{Valor:} 10 pontos} \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Data:}} & 
+            \multicolumn{3}{l|}{\textbf{Avaliação:}} \\ 
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{center}
+        \fbox{\setlength\fboxsep{0.3cm} \fbox{\parbox{15.4cm}{
+            \begin{center}
+                \textbf{INSTRUÇÕES PARA A REALIZAÇÃO DESTA AVALIAÇÃO:}
+            \end{center}
+            \begin{itemize}[leftmargin=*]
+                \item Esta é a primeira avaliação da disciplina Sem disciplina, 
+                    e engloba o conteúdo referente Sem tag.
+                \item Esta avaliação contém 20 questões objetivas, \textbf{todas obrigatórias}.
+                \item \textbf{Leia atentamente cada questão!} As questões objetivas terão uma,
+                    e apenas uma única, resposta a ser marcada.
+                \item \textbf{Desligue o celular} antes de começar. A avaliação é
+                    \textbf{individual} e \textbf{sem consulta}.
+                \item As questões podem ser respondidas, na prova, com lápis ou caneta. Ao final
+                    da prova \textbf{{VOCÊ DEVERÁ PREENCHER O GABARITO COM CANETA
+                    DE COR PRETA}} \textbf{\underline{OU AZUL}} para que seja feita a correção
+                    automatizada através da leitura do padrão de respostas marcado no
+                    gabarito.
+                \item \textbf{CUIDADO ao preencher o gabarito} pois eles são \textbf{INDIVIDUAIS
+                    e NOMEADOS} (cada estudante tem um gabarito próprio específico, com um
+                    código de identificação único). \textbf{Questões rasuradas são anuladas}
+                    pelo software de leitura do gabarito.
+                \item Ao final da prova, \textbf{DEVOLVA A PROVA E O GABARITO} para o professor.
+                \item Siga todas as normas de \textbf{Integridade Acadêmica} da disciplina.
+                    Alunos que forem flagrados com qualquer espécie de ``cola'' ou trocando
+                    informações com outros alunos terão suas avaliações recolhidas, as notas
+                    zeradas, e a situação será encaminhada para a coordenação para a aplicação
+                    das penalidades previstas pela universidade.
+                \item Com 90 minutos de avaliação você terá tempo de até 4,min por questão,
+                    em média.
+                \item Boa avaliação!
+            \end{itemize}
+            \vspace{2cm}
+        }}}
+    \end{center}
+    \newpage
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Inicia o bloco de questões:
+    \begin{questions}
+
+    \newpage
+    \question
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \caption{Enter Caption}
+\end{figure}
+Se \( O = (0, 0, 0) \); \( A = (2, 4, 1) \); \( B = (3, 1, 1) \) e \( C = (1, 3, 5) \) então o volume do sólido acima é
+
+\begin{choices}
+\choice 35/2
+\choice 35
+\choice 30
+\choice 21
+\choice 44
+\end{choices}
+
+\question
+Qual é a opção que descreve a tarefa executada pelo seguinte algoritmo escrito em Pascal? 
+\begin{verbatim} 
+procedure fazalgo (var x, var y)
+begin 
+	  x := x + y; 
+	  y := x - y;
+	  x := x - y; 
+end 
+\end{verbatim}
+\begin{choices}
+\choice troca os valores de x e y
+\choice calcula o mínimo múltiplo comum entre x e y e retorna o valor em x
+\choice divide x por y utilizando a subtração e retorna o resultado em x
+\choice não altera os valores de x e y
+\choice divide y por x utilizando a subtração e retorna o resultado em x
+\end{choices}
+
+\question
+Assinale o argumento válido, onde \( S_1 \), \( S_2 \) indicam premissas e \( S \) a conclusão:
+
+\begin{choices}
+\choice \( S_1 \): Se o cavalo estiver cansado então ele perderá a corrida \\
+              \( S_2 \): O cavalo ganhou a corrida \\
+              \( S \): O cavalo estava descansado
+\choice \( S_1 \): Se o cavalo estiver cansado então ele perderá a corrida \\
+              \( S_2 \): O cavalo estava descansado \\
+              \( S \): O cavalo ganhou a corrida
+\choice nenhuma das anteriores
+\choice \( S_1 \): Se o cavalo estiver cansado então ele perderá a corrida \\
+              \( S_2 \): O cavalo estava descansado \\
+              \( S \): O cavalo perdeu a corrida
+\choice Se o cavalo estiver cansado então ele perderá a corrida \\
+              \( S_2 \): O cavalo perdeu a corrida \\
+              \( S \): O cavalo estava cansado
+\end{choices}
+
+\question
+Quando trabalhando com sistemas baseados em trocas de mensagens, temporizações (\textit{time-outs}) são utilizadas para:
+
+\begin{choices}
+\choice Limitar o tempo para obter um recurso.
+\choice Limitar o tamanho de uma mensagem transmitida.
+\choice Temporariamente suspender a transmissão de mensagens.
+\choice Arbitrar que uma mensagem transmitida foi perdida.
+\choice Limitar o número de retransmissões de uma mensagem.
+\end{choices}
+
+\question
+Redes semânticas, frames e lógica são formalismos utilizados principalmente em: 
+\begin{choices}
+\choice inferência em sistemas especialistas
+\choice representação de conhecimento
+\choice descoberta de conhecimento em bases de dados
+\choice redes neurais
+\choice IA distribuída
+\end{choices}
+
+\question
+Considere as seguintes afirmativas:
+\begin{itemize}
+    \item O modelo matemático de uma lista é a sequência linear de itens, cuja principal propriedade estrutural é a posição relativa dos elementos dentro da sequência.
+    \item A fila e a pilha são consideradas casos especiais da lista.
+    \item Numa fila a inserção e a retirada são feitas no mesmo extremo.
+    \item Numa lista a inserção e a retirada podem ser feitas em qualquer posição.
+    \item Numa pilha apenas a inserção pode ser feita em qualquer posição.
+\end{itemize}
+
+Quais são as afirmativas verdadeiras?
+\begin{choices}
+\choice todas
+\choice somente I, II e IV
+\choice somente II, III e IV
+\choice somente I e III
+\choice somente II, IV e V
+\end{choices}
+
+\question
+Engenharia de Software inclui um grande número de teorias, conceitos, modelos, técnicas e métodos. Analise as seguintes definições.
+\begin{enumerate}[label=\Roman*.]
+    \item O processo de inferir ou reconstruir um modelo de mais alto nível (projeto ou especificação) a partir de um documento de mais baixo nível (tipicamente um código fonte);
+    \item Capacidade de modificação de um software (ou de um de seus componentes) após sua entrega ao cliente visando corrigir falhas, expandir a funcionalidade, modificar a performance ou outros atributos em resposta a novos requisitos do usuário ou mesmo ser adaptado a alguma mudança do ambiente de execução (plataforma, p.ex);
+    \item Modelo estabelecido pelo Software Engineering Institute (SEI) que propõe níveis de competência organizacional relacionados à qualidade do processo de desenvolvimento de software;
+\end{enumerate}
+Estas definições correspondem respectivamente aos seguintes termos:
+\begin{choices}
+\choice reengenharia, evolutibilidade, Personal Software Process (PSP)
+\choice engenharia reversa, reparabilidade, Team Software Process (TSP)
+\choice reengenharia, manutenibilidade, Capability Maturity Model (CMM)
+\choice engenharia reversa, manutenibilidade, Capability Maturity Model (CMM)
+\end{choices}
+
+\question
+Um sistema de gerenciamento de bancos de dados (SGBD) é um software servidor
+que nos permite definir, construir, manipular, integrar e compartilhar bancos
+de dados entre diversos usuários e aplicações. São exemplos de
+SGBD, \textbf{exceto}:
+\begin{choices}
+\choice Oracle Database
+\choice SQL Server
+\choice MongoDB
+\choice PostgreSQL
+\choice Oracle SQL Developer
+\end{choices}
+
+\question
+Seja a árvore binária abaixo a representação de um espaço de estados para um problema \( p \), em que o estado inicial é \( a \), e \( i \) e \( f \) são estados finais.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \caption{Questão 59}
+    \label{fig:enter-label}
+\end{figure}
+
+Um algoritmo de busca em largura-primeiro forneceria a seguinte sequência de estados como primeira alternativa a um caminho-solução para o problema \( p \):
+\begin{choices}
+\choice \( a \ b \ e \ i \)
+\choice \( a \ b \ d \ h \ e \ i \)
+\choice \( a \ c \ f \)
+\choice \( a \ b \ d \ e \ f \)
+\choice \( a \ b \ c \ d \ e \ f \)
+\end{choices}
+
+\question
+Qual é a função do circuito da figura abaixo?
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \label{fig:enter-label}
+\end{figure}
+\begin{choices}
+\choice multiplexador
+\choice somador
+\choice deslocador
+\choice subtrator
+\end{choices}
+
+\question
+Dada a seguinte fórmula (lógica de primeira ordem):\\
+$\forall x \ \exists y \ | \ ama(x,y)$ \\
+qual das seguintes sentenças em linguagem natural ela representa, considerando que \( ama(x,y) \) representa que \( x \) ama \( y \)?
+
+\begin{choices}
+\choice Há alguém que todos amam.
+\choice Ninguém ama a todos.
+\choice Nenhuma das anteriores.
+\choice Alguém ama a todos.
+\choice Todos amam alguém.
+\end{choices}
+
+\question
+Em um heap com \( n \) vértices existem:
+\begin{choices}
+\choice exatamente \( \left\lceil \frac{n}{2} \right\rceil \) folhas
+\choice não menos que \( \frac{2n}{3} \) folhas
+\choice não mais que \( \left\lfloor \frac{n}{5} \right\rfloor \) folhas
+\choice aproximadamente \( \log n \) folhas
+\choice exatamente \( \left\lceil \frac{n}{5} \right\rceil \) folhas
+\end{choices}
+
+\question
+O usuário que não é da área de tecnologia, costuma ser de alta gerência, que é
+especialista no negócio e tem a responsabilidade central pelas políticas de
+dados da empresa é o:
+\begin{choices}
+\choice Encarregado da Proteção de Dados (DPO: Data Protection Officer)
+\choice Coordenador de Tecnologia da Informação (ITS: IT Supervisor)
+\choice Administrador de Dados (DA: Data Administrator)
+\choice Gerente de Tecnologia da Informação (ITM: IT Manager)
+\choice Administrador do Banco de Dados (DBA: Database Administrator)
+\end{choices}
+
+\question
+Considere as seguintes afirmações sobre redes neurais artificiais: \begin{enumerate}[label=\Roman*.] \item Um perceptron elementar só computa funções linearmente separáveis. \item Não aceitam valores numéricos como entrada. \item O "conhecimento" é representado principalmente através do peso das conexões. \end{enumerate} São corretas:
+\begin{choices}
+\choice I, II e III
+\choice Apenas III
+\choice Apenas I e III
+\choice Apenas II e III
+\choice Apenas I e II 
+\end{choices}
+
+\question
+A medida da interconexão entre os módulos de uma estrutura de software é denominada e que também é usada em projetos orientados a objetos é: 
+\begin{choices}
+\choice acoplamento
+\choice abstração procedimental
+\choice unidade funcional
+\choice ocultamento da informação
+\choice coesão
+\end{choices}
+
+\question
+Algoritmos distribuídos podem usar passagem de "token" por um anel lógico para implementar exclusão mútua ou ordenação global de mensagens. Nesses algoritmos, apenas o processo que possui o "token" tem a permissão de usar um recurso compartilhado ou numerar mensagens, por exemplo. Considerando o conceito acima, podemos afirmar que: 
+\begin{choices}
+\choice a abordagem é adequada apenas para sistemas onde possa ser controlado o tempo que cada computador permanece com o 
+\choice nessa abordagem é impossível evitar a geração espontânea de vários "tokens" mesmo em sistemas livres de falhas 
+\choice para usar essa abordagem, os computadores precisam estar conectados em uma rede com topologia em 
+\choice a abordagem é pouco robusta pois a perda do "token" por um processo provoca o bloqueio do algoritmo distribuído que a usa 
+\choice a abordagem deve tratar no mínimo dois tipos de defeitos: perda do "token" e colapso de processos 
+\end{choices}
+
+\question
+Analise o diagrama relacional do banco de dados exibido na figura abaixo:
+\begin{figure}[H]
+  \centering
+  \caption{Banco de dados de peças e fornecedores}
+  \label{fig:pecas}
+  %\fbox{
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+  %}\\
+  %\footnotesize{Fonte: xxxx.}
+\end{figure}
+Podemos dizer que esse banco de dados ilustra:
+\begin{choices}
+\choice Um relacionamento com cardinalidade N:N entre as tabelas ``pecas' e ``fornecedores', realizado através de relacionamentos não identificados através da tabela ``fornecimentos'. 
+\choice Um relacionamento com cardinalidade 1:N entre as tabelas ``pecas' e ``fornecedores', indicando que uma peça pode ter sido fornecida por diversos fornecedores. 
+\choice Um relacionamento com identificação N:N entre as tabelas ``pecas' e ``fornecedores', realizado através do relacionamento com cardinalidade identificada através da tabela ``fornecimentos'. 
+\choice Um relacionamento com cardinalidade N:N entre as tabelas ``pecas' e ``fornecimentos', realizado através de relacionamentos não identificados com a tabela ``fornecedores'. 
+\choice Um relacionamento com cardinalidade N:N entre as tabelas ``pecas' e ``fornecedores', realizado através de relacionamentos identificados através da tabela ``fornecimentos'. 
+\end{choices}
+
+\question
+Na Álgebra Booleana:
+\begin{choices}
+\choice Há dez valores motivados pelos dez dedos do ser humano
+\choice Os dígitos são binários 0 e 1
+\choice Os dígitos são alfanuméricos que podem ser representados por um byte
+\choice Os dígitos são octais, de 0 a 7
+\choice Os dígitos são hexadecimais de 0 a 15
+\end{choices}
+
+\question
+O contador da figura abaixo é:
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \label{fig:enter-label}
+\end{figure}
+\begin{choices}
+\choice assíncrono
+\choice auto-sincronizado
+\choice anisócrono
+\choice síncrono
+\choice isócrono
+\end{choices}
+
+\question
+Filtro da mediana é:
+\begin{choices}
+\choice Indicado para detectar tonalidades específicas em uma imagem.
+\choice Indicado para detectar bordas em imagens.
+\choice Indicado para atenuar ruído com preservação de bordas (i.e., rápidas transições de nível em imagens).
+\choice Nenhuma das respostas acima.
+\choice Indicado para detectar formas específicas em imagens.
+\end{choices}
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Finaliza o bloco de questões:
+    \end{questions}
+    \end{document}
+    

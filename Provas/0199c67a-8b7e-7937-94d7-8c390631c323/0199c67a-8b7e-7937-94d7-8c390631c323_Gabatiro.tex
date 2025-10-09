@@ -1,0 +1,221 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{array} % Para alinhamento vertical
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\setlength{\fboxsep}{15pt} 
+\geometry{
+    top=1.5cm,
+    bottom=1.5cm,
+    left=1.5cm,
+    right=1.5cm
+}
+
+\newcommand{\opcao}[1]{%
+    \tikz[baseline=-0.5ex]\draw (0,0) circle (0.25cm) node {#1};%
+}
+\newcommand{\opcaocorreta}[1]{%
+    \tikz[baseline=-0.5ex]\filldraw[fill=black] (0,0) circle (0.25cm) node[white]{#1};%
+}
+
+\newcommand{\qrspace}[1][2cm]{%
+    \begin{tikzpicture}
+        \draw[thick] (0,0) rectangle (#1,#1);
+        \node at (#1/2,#1/2) {\small QR CODE};
+    \end{tikzpicture}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+% Gabarito de múltipla escolha
+\begin{center}
+{\large \textbf{GABARITO}}
+\end{center}
+
+\vspace{0.3cm}
+
+% Primeira coluna de questões (1-25)
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Q} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} \\
+\hline
+
+    1 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    2 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    3 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    4 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    5 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    6 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    7 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    8 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    9 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    10 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    11 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    12 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    13 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    14 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    15 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    16 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    17 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    18 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    19 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    20 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    21 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    22 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    23 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    24 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    25 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+\end{tabular}
+\end{center}
+
+\columnbreak
+
+% Segunda coluna de questões (26-50)
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Q} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} \\
+\hline
+
+    26 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    27 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    28 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    29 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    30 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    31 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    32 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    33 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    34 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    35 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    36 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    37 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    38 & \opcao{A} & \opcaocorreta{A} & \opcao{B} & \opcaocorreta{B} & \opcao{C} \\
+    \hline
+    
+    39 & \opcao{A} & \opcao{B} & \opcaocorreta{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    40 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    41 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    42 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    43 & \opcao{A} & \opcaocorreta{A} & \opcao{B} & \opcaocorreta{B} & \opcao{C} \\
+    \hline
+    
+    44 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    45 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    46 & \opcao{A} & \opcao{B} & \opcao{C} & \opcaocorreta{D} & \opcao{E} \\
+    \hline
+    
+    47 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    48 & \opcao{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcaocorreta{E} \\
+    \hline
+    
+    49 & \opcaocorreta{A} & \opcao{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    50 & \opcao{A} & \opcaocorreta{B} & \opcao{C} & \opcao{D} & \opcao{E} \\
+    \hline
+    
+    \end{tabular}
+    \end{center}
+    \end{multicols}
+
+    \end{document}
+    

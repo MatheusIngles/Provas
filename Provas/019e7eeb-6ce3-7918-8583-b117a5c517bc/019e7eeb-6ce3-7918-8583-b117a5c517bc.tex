@@ -1,0 +1,429 @@
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Classe do documento
+    \documentclass[12pt, addpoints]{exam}
+    \UseRawInputEncoding
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % preambulo.tex
+    %
+    % Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+    % preferências e modelos pessoais.
+    %
+    % Para maiores informações, visite:
+    %    https://github.com/abrantesasf/latex
+    %
+    % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Estruturas de controle:
+    \input{static/utils/controles}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Compilação condicional em PDF:
+    \input{static/utils/pdf}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de layout da página:
+    \input{static/utils/layout}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para autores:
+    \input{static/utils/autores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cabeçalho e rodapé:
+    %%% Atenção! É MUITO DIFÍCIL ajustar apropriadamente os running headers
+    %%% e running footers da primeira vez. Você pode confiar no LaTeX e deixar que
+    %%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
+    %%% tentar melhorar algo que o LaTeX já faz muito bem, mesmo que não fique
+    %%% exatamente do jeito que você quer. O que você prefere? Se quiser ajustar
+    %%% manualmente, descomente a linha abaixo e faça as configurações no arquivo
+    %%% "utils/headings.tex".
+    %\input{static/utils/headings}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configuração para as fontes do documento:
+    %%% Se você quiser usar fontes próprias ou do sistema, precisará ajustar as
+    %%% configurações no arquivo "utils/fontes.tex".
+    %%% ATENÇÃO: por padrão eu utilizo XeLaTeX com fontes proprietárias projetadas
+    %%% por Matthew Butterick, adquiridas em https://mbtype.com, que não podem ser
+    %%% distribuídas devido à licença de utilização. Se você usar XeLaTeX, você
+    %%% DEVERÁ OBRIGATORIAMENTE ajustar as fontes no arquivo "utils/fontes.tex".
+    \input{static/utils/fontes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Sumário:
+    \input{static/utils/toc}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Matemática:
+    \input{static/utils/matematica}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Notas de rodapé:
+    \input{static/utils/footnotes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências cruzadas, links, citações:
+    \input{static/utils/crossrefs}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para os hiperlinks em PDF:
+    \input{static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Glossário e índice remissivo:
+    \input{static/utils/glossindex}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências bibliográficas:
+    \input{static/utils/bibliografia}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cores:
+    \input{static/utils/cores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Computação:
+    \input{static/utils/computacao}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Gráficos:
+    \input{static/utils/graficos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ícones:
+    \input{static/utils/icones}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Blocos:
+    \input{static/utils/blocos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Boxes coloridos:
+    \input{static/utils/colorbox}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Tabelas:
+    \input{static/utils/tabelas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes de listas:
+    \input{static/utils/listas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes floats e similares:
+    \input{static/utils/floats}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para a classe EXAM:
+    \input{static/utils/exam}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para textos:
+    \input{static/utils/texto}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes, aliases, comandos e customizações em geral para serem
+    %%% utilizadas nos documentos. Defina aqui qualquer customização específica
+    %%% para seus documentos!
+    \input{static/utils/customizacoes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajuste do layout, espaçamento de linhas e etc.:
+    \geometry{a4paper, portrait, left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm}
+    \singlespacing
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de cabeçalho e rodapé (não use fancyhdr pois ocorre conflito):
+    \pagestyle{headandfoot}
+    \runningheadrule
+    \firstpageheader{}{}{}
+    \runningheader{Sem disciplina}{}{Avaliação}
+    \firstpagefooter{}{}{Página \thepage\ de \numpages}
+    \runningfooter{}{}{Página \thepage\ de \numpages}
+    \runningfootrule
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para as propriedades do PDF:
+    \hypersetup{
+    hidelinks,           % Comente para web, descomente para impressão
+    colorlinks=true,      % True para web, False para impressão
+    pdftitle=sss: Avaliação,
+    pdfauthor=bbb,
+    pdfsubject=Sem disciplina,
+    pdfkeywords=['Sem tag'],
+    pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+    }
+    }
+    \input{static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Começa o documento
+    \begin{document}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Folha de instruções padronizadas da UVV para a prova
+    \pdfbookmark[1]{Instruções}{instrucoes}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.3]{{static/imgs/logo-uvv.png}}
+        \end{center}	
+    \end{figure}
+
+    \vspace{-1cm}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|llll|}
+            \hline
+            \multicolumn{2}{|l|}{\textbf{Disciplina:} Sem disciplina} & 
+            \multicolumn{1}{l|}{\multirow{3}{*}{\textbf{\makecell{Nota:\\ \,\\ \,}}}} & 
+            \multirow{3}{*}{\textbf{\makecell{Coordenador:\\ \,\\ \,}}} \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Professor:} bbb \hspace{4.72cm} } & 
+            \multicolumn{1}{l|}{} & \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Aluno:}} & 
+            \multicolumn{1}{l|}{} & \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Turma:} \hspace{6.3cm} } & 
+            \multicolumn{1}{l|}{\textbf{Semestre:}} & 
+            \multicolumn{2}{l|}{\textbf{Valor:} 10 pontos} \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Data:}} & 
+            \multicolumn{3}{l|}{\textbf{Avaliação:}} \\ 
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{center}
+        \fbox{\setlength\fboxsep{0.3cm} \fbox{\parbox{15.4cm}{
+            \begin{center}
+                \textbf{INSTRUÇÕES PARA A REALIZAÇÃO DESTA AVALIAÇÃO:}
+            \end{center}
+            \begin{itemize}[leftmargin=*]
+                \item Esta é a primeira avaliação da disciplina Sem disciplina, 
+                    e engloba o conteúdo referente Sem tag.
+                \item Esta avaliação contém 10 questões objetivas, \textbf{todas obrigatórias}.
+                \item \textbf{Leia atentamente cada questão!} As questões objetivas terão uma,
+                    e apenas uma única, resposta a ser marcada.
+                \item \textbf{Desligue o celular} antes de começar. A avaliação é
+                    \textbf{individual} e \textbf{sem consulta}.
+                \item As questões podem ser respondidas, na prova, com lápis ou caneta. Ao final
+                    da prova \textbf{{VOCÊ DEVERÁ PREENCHER O GABARITO COM CANETA
+                    DE COR PRETA}} \textbf{\underline{OU AZUL}} para que seja feita a correção
+                    automatizada através da leitura do padrão de respostas marcado no
+                    gabarito.
+                \item \textbf{CUIDADO ao preencher o gabarito} pois eles são \textbf{INDIVIDUAIS
+                    e NOMEADOS} (cada estudante tem um gabarito próprio específico, com um
+                    código de identificação único). \textbf{Questões rasuradas são anuladas}
+                    pelo software de leitura do gabarito.
+                \item Ao final da prova, \textbf{DEVOLVA A PROVA E O GABARITO} para o professor.
+                \item Siga todas as normas de \textbf{Integridade Acadêmica} da disciplina.
+                    Alunos que forem flagrados com qualquer espécie de ``cola'' ou trocando
+                    informações com outros alunos terão suas avaliações recolhidas, as notas
+                    zeradas, e a situação será encaminhada para a coordenação para a aplicação
+                    das penalidades previstas pela universidade.
+                \item Com 90 minutos de avaliação você terá tempo de até 9,min por questão,
+                    em média.
+                \item Boa avaliação!
+            \end{itemize}
+            \vspace{2cm}
+        }}}
+    \end{center}
+    \newpage
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Inicia o bloco de questões:
+    \begin{questions}
+
+    \newpage
+    \question
+Assinale a alternativa que contém a ordem correta das cláusulas SQL:
+
+\begin{choices}
+\choice Nenhuma das alternativas acima
+\choice SELECT, FROM, JOIN, WHERE, GROUP BY, ORDER BY, HAVING
+\choice SELECT, FROM, WHERE, JOIN, HAVING, GROUP BY, ORDER BY
+\choice SELECT, FROM, JOIN, WHERE, GROUP BY, HAVING, ORDER BY
+\choice SELECT, FROM, WHERE, GROUP BY, JOIN, HAVING, ORDER BY
+\end{choices}
+
+\question
+Qual das seguintes opções \textbf{não é} uma vantagem do uso de um banco de
+dados sobre o sistema de arquivos convencional?
+
+\begin{choices}
+\choice Estruturação de dados
+\choice Controle de redundância e inconsistência
+\choice Eficiência
+\choice Controle de acesso e visualização de dados
+\choice Independência de dados
+\end{choices}
+
+\question
+Professor Mac Sperto propôs o seguinte algoritmo de ordenação, chamado de Super Merge, similar ao \textit{merge sort}: divida o vetor em 4 partes do mesmo tamanho (ao invés de 2, como é feito no \textit{merge sort}). Ordene recursivamente cada uma das partes e depois intercale-as por um procedimento semelhante ao procedimento de intercalação do \textit{merge sort}. Qual das alternativas abaixo é verdadeira?
+\begin{choices}
+\choice Nenhuma das afirmações acima está correta
+\choice Super Merge está correto, mas consome tempo menor que \( O(\text{merge sort}) \)
+\choice Super Merge está correto, mas consome tempo maior que \( O(\text{merge sort}) \)
+\choice Super Merge está correto, mas consome tempo \( O(\text{merge sort}) \)
+\choice Super Merge não está correto. Não é possível ordenar quebrando o vetor em 4 partes
+\end{choices}
+
+\question
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+    \caption{Enter Caption}
+\end{figure}
+Se \( O = (0, 0, 0) \); \( A = (2, 4, 1) \); \( B = (3, 1, 1) \) e \( C = (1, 3, 5) \) então o volume do sólido acima é
+
+\begin{choices}
+\choice 35/2
+\choice 21
+\choice 44
+\choice 30
+\choice 35
+\end{choices}
+
+\question
+(ENADE 2017) No modelo relacional de dados, uma junção entre tabelas cria uma
+outra tabela derivada de duas ou mais tabelas de acordo com os critérios
+especificados para a junção, de modo similar às regras da teoria dos
+conjuntos. Nos conjuntos a seguir, as áreas hachuradas representam os resultados
+das consultas SQL em que ``id' é uma chave primária e ``fk' é uma chave
+estrangeira:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+\end{figure}
+Assinale a opção em que a declaração SQL é equivalente ao conjunto apresentado a
+seguir:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{static/imgs/defaul.png}
+\end{figure}
+
+\begin{choices}
+\choice \begin{verbatim}SELECT *
+FROM tabela1 t1
+RIGHT JOIN tabela2 t2 ON (t1.id = t2.fk)
+WHERE t2.fk <> NULL;
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT *
+FROM tabela1 t1 WHERE EXISTS (SELECT 1
+                              FROM tabela2 t2
+                              WHERE t2.id = t1.fk);
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT *
+FROM tabela1 t1
+RIGHT JOIN tabela2 t2 ON (t1.id = t2.fk)
+WHERE t1.id IS NULL;
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT *
+FROM tabela1 t1
+INNER JOIN tabela2 t2 ON (t1.id = t2.fk);
+\end{verbatim}
+
+\choice \begin{verbatim}SELECT *
+FROM tabela1 t1
+WHERE NOT EXISTS (SELECT 1
+                  FROM tabela1 t2
+                  WHERE t2.id = tk.fk);
+\end{verbatim}
+
+\end{choices}
+
+\question
+São modelos de dados legados, pré-relacionais, exceto:
+
+\begin{choices}
+\choice Hierárquico
+\choice Nenhuma das alternativas anteriores
+\choice Flat file
+\choice Rede
+\choice Objeto
+\end{choices}
+
+\question
+Engenharia de Software inclui um grande número de teorias, conceitos, modelos, técnicas e métodos. Analise as seguintes definições.
+\begin{enumerate}[label=\Roman*.]
+    \item O processo de inferir ou reconstruir um modelo de mais alto nível (projeto ou especificação) a partir de um documento de mais baixo nível (tipicamente um código fonte);
+    \item Capacidade de modificação de um software (ou de um de seus componentes) após sua entrega ao cliente visando corrigir falhas, expandir a funcionalidade, modificar a performance ou outros atributos em resposta a novos requisitos do usuário ou mesmo ser adaptado a alguma mudança do ambiente de execução (plataforma, p.ex);
+    \item Modelo estabelecido pelo Software Engineering Institute (SEI) que propõe níveis de competência organizacional relacionados à qualidade do processo de desenvolvimento de software;
+\end{enumerate}
+Estas definições correspondem respectivamente aos seguintes termos:
+\begin{choices}
+\choice engenharia reversa, reparabilidade, Team Software Process (TSP)
+\choice reengenharia, manutenibilidade, Capability Maturity Model (CMM)
+\choice reengenharia, evolutibilidade, Personal Software Process (PSP)
+\choice engenharia reversa, manutenibilidade, Capability Maturity Model (CMM)
+\choice engenharia reversa, reparabilidade, Team Software Process (TSP)
+\end{choices}
+
+\question
+Qual o valor do atributo \( E.val \) após a análise da expressão "4 / 2 / 2" para o esquema de tradução a seguir?
+
+\begin{itemize}
+    \item \( E \rightarrow T / E1 \ \{ E.val = T.val / E1.val \} \)
+    \item \( E \rightarrow T \ \{ E.val = T.val \} \)
+    \item \( T \rightarrow \text{digito} \ \{ T.val = \text{val(digito)} \} \)
+\end{itemize}
+
+\begin{choices}
+\choice 8
+\choice 2
+\choice 4
+\choice 1
+\choice 3
+\end{choices}
+
+\question
+Considere as seguintes tabelas em uma base de dados relacional (chaves primárias sublinhadas):\\
+Departamento (\underline{CodDepto}, NomeDepto)\\
+Empregado (\underline{CodEmp}, NomeEmp, CodDepto)\\
+Considere as seguintes restrições de integridade sobre esta base de dados relacional:\\
+- Empregado.CodDepto é sempre diferente de NULL\\
+- Empregado.CodDepto é chave estrangeira da tabela Departamento com cláusulas ON DELETE RESTRICT e ON UPDATE RESTRICT\\
+Qual das seguintes validações não é especificada por estas restrições de integridade:
+\begin{choices}
+\choice Sempre que uma linha for excluída de Departamento, deve ser garantido que o valor de Departamento.CodDepto não aparece na coluna Empregado.CodDepto.
+\choice Sempre que o valor de Departamento.CodDepto for alterado, deve ser garantido que não há uma linha com o antigo valor de Departamento.CodDepto na coluna Empregado.CodDepto.
+\choice Sempre que uma nova linha for inserida em Empregado, deve ser garantido que o valor de Empregado.CodDepto aparece na coluna Departamento.CodDepto.
+\choice Sempre que uma nova linha for inserida em Departamento, deve ser garantido que o valor de Departamento.CodDepto aparece na coluna Empregado.CodDepto.
+\choice Sempre que o valor de Empregado.CodDepto for alterado, deve ser garantido que o novo valor de Empregado.CodDepto aparece em Departamento.CodDepto.
+\end{choices}
+
+\question
+Considere as seguintes afirmativas sobre as linguagens usadas para análise sintática:
+\begin{enumerate}[label=\Roman*.]
+    \item A classe LL(1) não aceita linguagens com produções que apresentem recursões diretas à esquerda (ex. \(L \rightarrow La\)) mas aceita linguagens com recursões indiretas (ex. \(L \rightarrow Ra, R \rightarrow Lb\)).
+    \item A linguagem LR(1) reconhece a mesma classe de linguagens que LALR(1).
+    \item A linguagem SLR(1) reconhece uma classe de linguagens maior que LR(0).
+\end{enumerate}
+Selecione a afirmativa correta:
+\begin{choices}
+\choice As afirmativas I e II são verdadeiras
+\choice Apenas a afirmativa III é verdadeira
+\choice As afirmativas I e III são verdadeiras
+\choice As afirmativas II e III são verdadeiras
+\choice As afirmativas I e III são falsas
+\end{choices}
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Finaliza o bloco de questões:
+    \end{questions}
+    \end{document}
+    

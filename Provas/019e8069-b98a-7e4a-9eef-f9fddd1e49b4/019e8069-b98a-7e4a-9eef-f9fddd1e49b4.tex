@@ -1,0 +1,396 @@
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Classe do documento
+    \documentclass[12pt, addpoints]{exam}
+    \UseRawInputEncoding
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % preambulo.tex
+    %
+    % Arquivo de configuração de packages para uso o LaTeX, conforme minhas
+    % preferências e modelos pessoais.
+    %
+    % Para maiores informações, visite:
+    %    https://github.com/abrantesasf/latex
+    %
+    % NÃO ALTERE SE NÃO SOUBER O QUE ESTÁ FAZENDO!
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Estruturas de controle:
+    \input{/app/static/utils/controles}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Compilação condicional em PDF:
+    \input{/app/static/utils/pdf}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de layout da página:
+    \input{/app/static/utils/layout}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para autores:
+    \input{/app/static/utils/autores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cabeçalho e rodapé:
+    %%% Atenção! É MUITO DIFÍCIL ajustar apropriadamente os running headers
+    %%% e running footers da primeira vez. Você pode confiar no LaTeX e deixar que
+    %%% ele faça o ajuste automaticamente ou pode quebrar a cabeça e
+    %%% tentar melhorar algo que o LaTeX já faz muito bem, mesmo que não fique
+    %%% exatamente do jeito que você quer. O que você prefere? Se quiser ajustar
+    %%% manualmente, descomente a linha abaixo e faça as configurações no arquivo
+    %%% "utils/headings.tex".
+    %\input{/app/static/utils/headings}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configuração para as fontes do documento:
+    %%% Se você quiser usar fontes próprias ou do sistema, precisará ajustar as
+    %%% configurações no arquivo "utils/fontes.tex".
+    %%% ATENÇÃO: por padrão eu utilizo XeLaTeX com fontes proprietárias projetadas
+    %%% por Matthew Butterick, adquiridas em https://mbtype.com, que não podem ser
+    %%% distribuídas devido à licença de utilização. Se você usar XeLaTeX, você
+    %%% DEVERÁ OBRIGATORIAMENTE ajustar as fontes no arquivo "utils/fontes.tex".
+    \input{/app/static/utils/fontes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Sumário:
+    \input{/app/static/utils/toc}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Matemática:
+    \input{/app/static/utils/matematica}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Notas de rodapé:
+    \input{/app/static/utils/footnotes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências cruzadas, links, citações:
+    \input{/app/static/utils/crossrefs}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para os hiperlinks em PDF:
+    \input{/app/static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Glossário e índice remissivo:
+    \input{/app/static/utils/glossindex}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Referências bibliográficas:
+    \input{/app/static/utils/bibliografia}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Cores:
+    \input{/app/static/utils/cores}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Computação:
+    \input{/app/static/utils/computacao}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Gráficos:
+    \input{/app/static/utils/graficos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ícones:
+    \input{/app/static/utils/icones}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Blocos:
+    \input{/app/static/utils/blocos}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Boxes coloridos:
+    \input{/app/static/utils/colorbox}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Tabelas:
+    \input{/app/static/utils/tabelas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes de listas:
+    \input{/app/static/utils/listas}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes floats e similares:
+    \input{/app/static/utils/floats}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para a classe EXAM:
+    \input{/app/static/utils/exam}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajustes para textos:
+    \input{/app/static/utils/texto}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ambientes, aliases, comandos e customizações em geral para serem
+    %%% utilizadas nos documentos. Defina aqui qualquer customização específica
+    %%% para seus documentos!
+    \input{/app/static/utils/customizacoes}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Ajuste do layout, espaçamento de linhas e etc.:
+    \geometry{a4paper, portrait, left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm}
+    \singlespacing
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações de cabeçalho e rodapé (não use fancyhdr pois ocorre conflito):
+    \pagestyle{headandfoot}
+    \runningheadrule
+    \firstpageheader{}{}{}
+    \runningheader{Sem disciplina}{}{Avaliação}
+    \firstpagefooter{}{}{Página \thepage\ de \numpages}
+    \runningfooter{}{}{Página \thepage\ de \numpages}
+    \runningfootrule
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Configurações para as propriedades do PDF:
+    \hypersetup{
+    hidelinks,           % Comente para web, descomente para impressão
+    colorlinks=true,      % True para web, False para impressão
+    pdftitle=jjjj: Avaliação,
+    pdfauthor=bre,
+    pdfsubject=Sem disciplina,
+    pdfkeywords=['Sem tag'],
+    pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+    }
+    }
+    \input{/app/static/utils/pdfconfig}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Começa o documento
+    \begin{document}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Folha de instruções padronizadas da UVV para a prova
+    \pdfbookmark[1]{Instruções}{instrucoes}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.3]{{/app/static/imgs/logo-uvv.png}}
+        \end{center}	
+    \end{figure}
+
+    \vspace{-1cm}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|llll|}
+            \hline
+            \multicolumn{2}{|l|}{\textbf{Disciplina:} Sem disciplina} & 
+            \multicolumn{1}{l|}{\multirow{3}{*}{\textbf{\makecell{Nota:\\ \,\\ \,}}}} & 
+            \multirow{3}{*}{\textbf{\makecell{Coordenador:\\ \,\\ \,}}} \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Professor:} bre \hspace{4.72cm} } & 
+            \multicolumn{1}{l|}{} & \\ 
+            \cline{1-2}
+            \multicolumn{2}{|l|}{\textbf{Aluno:}} & 
+            \multicolumn{1}{l|}{} & \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Turma:} \hspace{6.3cm} } & 
+            \multicolumn{1}{l|}{\textbf{Semestre:}} & 
+            \multicolumn{2}{l|}{\textbf{Valor:} 10 pontos} \\ 
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Data:}} & 
+            \multicolumn{3}{l|}{\textbf{Avaliação:}} \\ 
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{center}
+        \fbox{\setlength\fboxsep{0.3cm} \fbox{\parbox{15.4cm}{
+            \begin{center}
+                \textbf{INSTRUÇÕES PARA A REALIZAÇÃO DESTA AVALIAÇÃO:}
+            \end{center}
+            \begin{itemize}[leftmargin=*]
+                \item Esta é a primeira avaliação da disciplina Sem disciplina, 
+                    e engloba o conteúdo referente Sem tag.
+                \item Esta avaliação contém 10 questões objetivas, \textbf{todas obrigatórias}.
+                \item \textbf{Leia atentamente cada questão!} As questões objetivas terão uma,
+                    e apenas uma única, resposta a ser marcada.
+                \item \textbf{Desligue o celular} antes de começar. A avaliação é
+                    \textbf{individual} e \textbf{sem consulta}.
+                \item As questões podem ser respondidas, na prova, com lápis ou caneta. Ao final
+                    da prova \textbf{{VOCÊ DEVERÁ PREENCHER O GABARITO COM CANETA
+                    DE COR PRETA}} \textbf{\underline{OU AZUL}} para que seja feita a correção
+                    automatizada através da leitura do padrão de respostas marcado no
+                    gabarito.
+                \item \textbf{CUIDADO ao preencher o gabarito} pois eles são \textbf{INDIVIDUAIS
+                    e NOMEADOS} (cada estudante tem um gabarito próprio específico, com um
+                    código de identificação único). \textbf{Questões rasuradas são anuladas}
+                    pelo software de leitura do gabarito.
+                \item Ao final da prova, \textbf{DEVOLVA A PROVA E O GABARITO} para o professor.
+                \item Siga todas as normas de \textbf{Integridade Acadêmica} da disciplina.
+                    Alunos que forem flagrados com qualquer espécie de ``cola'' ou trocando
+                    informações com outros alunos terão suas avaliações recolhidas, as notas
+                    zeradas, e a situação será encaminhada para a coordenação para a aplicação
+                    das penalidades previstas pela universidade.
+                \item Com 90 minutos de avaliação você terá tempo de até 9,min por questão,
+                    em média.
+                \item Boa avaliação!
+            \end{itemize}
+            \vspace{2cm}
+        }}}
+    \end{center}
+    \newpage
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Inicia o bloco de questões:
+    \begin{questions}
+
+    \newpage
+    \question
+Todos os convidados presentes num jantar tomam chá ou café. Treze convidados bebem café, dez bebem chá e 4 bebem chá e café. Quantas pessoas tem nesse jantar.
+
+\begin{choices}
+\choice 23
+\choice 19
+\choice 27
+\choice 10
+\choice 15
+\end{choices}
+
+\question
+O contador da figura abaixo é:
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{/app/static/imgs/defaul.png}
+    \label{fig:enter-label}
+\end{figure}
+\begin{choices}
+\choice anisócrono
+\choice auto-sincronizado
+\choice síncrono
+\choice assíncrono
+\choice isócrono
+\end{choices}
+
+\question
+Considere a seguinte tabela em uma base de dados relacional (chave primária sublinhada):\\
+Tabela1 (CodAluno, CodDisciplina, AnoSemestre, NomeAluno, NomeDisciplina, CodNota, DescricaoNota)\\
+Considere as seguintes dependências funcionais:
+\begin{itemize}
+    \item CodAluno \(\rightarrow\) NomeAluno
+    \item CodDisciplina \(\rightarrow\) NomeDisciplina
+    \item (CodAluno, CodDisciplina, AnoSemestre) \(\rightarrow\) CodNota
+    \item (CodAluno, CodDisciplina, AnoSemestre) \(\rightarrow\) DescricaoNota
+    \item CodNota \(\rightarrow\) DescricaoNota
+\end{itemize}
+
+Considerando as formas normais, qual das afirmativas abaixo se aplica:
+\begin{choices}
+\choice A tabela não está na primeira forma normal.
+\choice A tabela encontra-se na terceira forma normal, mas não na quarta forma normal.
+\choice A tabela encontra-se na primeira forma normal, mas não na segunda forma normal.
+\choice A tabela está na quarta forma normal.
+\choice A tabela encontra-se na segunda forma normal, mas não na terceira forma normal.
+\end{choices}
+
+\question
+Na Álgebra Booleana:
+\begin{choices}
+\choice Os dígitos são binários 0 e 1
+\choice Há dez valores motivados pelos dez dedos do ser humano
+\choice Os dígitos são octais, de 0 a 7
+\choice Os dígitos são alfanuméricos que podem ser representados por um byte
+\choice Os dígitos são hexadecimais de 0 a 15
+\end{choices}
+
+\question
+Se \( \lim_{n \to \infty} \left( \frac{1}{n^2} + \frac{2}{n^2} + \cdots + \frac{n-1}{n^2} \right) = L \) então
+
+\begin{choices}
+\choice \( L = 2 \)
+\choice \( L = \infty \)
+\choice \( L = 0 \)
+\choice \( L = 1/2 \)
+\choice \( L = 1 \)
+\end{choices}
+
+\question
+Seja \( f : \mathbb{R} \to \mathbb{R} \) derivável. Se existem \( a, b \in \mathbb{R} \) tal que \( f(a)f(b) < 0 \) e \( f(x) \neq 0 \) para todo \( x \in (a, b) \), podemos afirmar que no intervalo \( (a, b) \) a equação \( f(x) = 0 \) tem:
+\begin{choices}
+\choice duas raízes reais
+\choice somente raízes imaginárias
+\choice nenhuma raiz real
+\choice uma única raiz real
+\choice uma raiz imaginária
+\end{choices}
+
+\question
+Considere o projeto de um circuito digital que implementa uma função \( f \) com três variáveis de entrada e satisfazendo as seguintes propriedades:
+
+\[
+f(x, y, z) = 
+\begin{cases} 
+1 & \text{se } x \neq y \\ 
+0 & \text{caso contrário} 
+\end{cases}
+\]
+
+Qual das seguintes expressões representa corretamente a função \( f \)?
+\begin{choices}
+\choice \( x + \overline{y}z \)
+\choice \( xy + \overline{y}z + \overline{z} \)
+\choice \( \overline{x}y + \overline{y} \)
+\choice \( \overline{x}y z + x y z \)
+\choice \( \overline{x}z + xy + yz \)
+\end{choices}
+
+\question
+Qual das seguintes condições não é necessária para a ocorrência de um \textit{deadlock}?
+
+\begin{choices}
+\choice Uso mutuamente exclusivo de recursos por processos.
+\choice Processos em espera circular.
+\choice Escalonamento preemptivo de recursos.
+\choice Haver compartilhamento de recursos por processos.
+\choice Alocação parcial de recursos a processos.
+\end{choices}
+
+\question
+Qual o valor do atributo \( E.val \) após a análise da expressão "4 / 2 / 2" para o esquema de tradução a seguir?
+
+\begin{itemize}
+    \item \( E \rightarrow T / E1 \ \{ E.val = T.val / E1.val \} \)
+    \item \( E \rightarrow T \ \{ E.val = T.val \} \)
+    \item \( T \rightarrow \text{digito} \ \{ T.val = \text{val(digito)} \} \)
+\end{itemize}
+
+\begin{choices}
+\choice 8
+\choice 1
+\choice 4
+\choice 2
+\choice 3
+\end{choices}
+
+\question
+``Um modelo de dados é uma definição lógica, abstrata e auto-contida
+dos \circled{1}, \circled{2} e \circled{3} que, juntos, constituem a \circled{4}
+com a qual os usuários interagem. Os \circled{1} nos permitem modelar
+a \circled{5}; os \circled{2} nos permitem modelar
+seu \circled{6}. Os \circled{3} nos permitem modelar sua \circled{7}.'
+
+As palavras/termos que completam a frase acima, são, conforme os números:
+
+\begin{choices}
+\choice 1 = demais conceitos; 2 = objetos; 3 = operadores; 4 = estrutura de dados; 5 = máquina abstrata; 6 = integridade; 7 = comportamento.
+\choice 1 = operadores; 2 = objetos; 3 = demais conceitos; 4 = máquina abstrata; 5 = estrutura de dados; 6 = comportamento; 7 = integridade.
+\choice 1 = objetos; 2 = operadores; 3 = demais conceitos; 4 = máquina abstrata; 5 = estrutura de dados; 6 = comportamento; 7 = integridade.
+\choice 1 = objetos; 2 = máquina abstrata; 3 = demais conceitos; 4 = operadores; 5 = estrutura de dados; 6 = comportamento; 7 = integridade.
+\choice 1 = objetos; 2 = operadores; 3 = máquina abstrata; 4 = demais conceitos; 5 = estrutura de dados; 6 = integridade; 7 = comportamento.
+\end{choices}
+
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% Finaliza o bloco de questões:
+    \end{questions}
+    \end{document}
+    
